@@ -1,0 +1,18 @@
+{
+  "name": "attik-sdk-js",
+  "version": "1.0.0",
+  "description": "Attik SDK for NEAR JS",
+  "type": "module",
+  "scripts": {
+  },
+  "author": "Attik",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "near-sdk-js": "^0.4.0-5"
+  },
+  "devDependencies": {
+    "@types/cacheable-request": "^6.0.2",
+    "@types/responselike": "^1.0.0",
+    "typescript": "^4.7.4"
+  }
+}
