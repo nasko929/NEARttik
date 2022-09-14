@@ -572,7 +572,7 @@ let QueryType;
 class ComplexQuery {
   constructor(queries, callback) {
     this._queries = queries;
-    this._callback = callback?.name || null;
+    this._callback = callback;
   }
 
   get queries() {
@@ -589,7 +589,7 @@ class Query {
     this._modelName = modelName;
     this._queryType = queryType;
     this._queryBody = queryBody;
-    this._callback = callback?.name || null;
+    this._callback = callback;
   }
 
   get modelName() {
@@ -636,18 +636,9 @@ class Database {
 }
 
 class Coordinate {
-  // Extends the abstraction
-  get y() {
-    return this._y;
-  }
-
-  get x() {
-    return this._x;
-  }
-
   constructor(x, y) {
-    this._x = x;
-    this._y = y;
+    this.x = x;
+    this.y = y;
   }
 
 }
@@ -733,7 +724,7 @@ let HelloNear = (_dec = NearBindgen({}), _dec2 = initialize({}), _dec3 = call({}
     conditions
   }) {
     // Find coordinate
-    CoordinateModel.findOne(conditions, this.coordinateFound);
+    CoordinateModel.findOne(conditions, "coordinateFound");
   }
 
   save({
@@ -741,7 +732,7 @@ let HelloNear = (_dec = NearBindgen({}), _dec2 = initialize({}), _dec3 = call({}
   }) {
     // Save coordinate
     let c = new Coordinate(coordinates["x"], coordinates["y"]);
-    CoordinateModel.save(c, this.coordinateSaved);
+    CoordinateModel.save(c, "coordinateSaved");
   }
 
   complexQuery() {
@@ -754,7 +745,7 @@ let HelloNear = (_dec = NearBindgen({}), _dec2 = initialize({}), _dec3 = call({}
       y: {
         $lt: 2
       }
-    })], this.complexCallback);
+    })], "complexCallback");
     Database.executeQuery(query);
   }
 

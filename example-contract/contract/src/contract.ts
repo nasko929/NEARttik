@@ -15,14 +15,14 @@ class HelloNear {
   @call({})
   find({ conditions }: { conditions: object }) {
     // Find coordinate
-    CoordinateModel.findOne(conditions, this.coordinateFound);
+    CoordinateModel.findOne(conditions, "coordinateFound");
   }
 
   @call({})
   save({ coordinates }: { coordinates: object }) {
     // Save coordinate
     let c: Coordinate = new Coordinate(coordinates["x"], coordinates["y"]);
-    CoordinateModel.save(c, this.coordinateSaved);
+    CoordinateModel.save(c, "coordinateSaved");
   }
 
   @call({})
@@ -33,7 +33,7 @@ class HelloNear {
         CoordinateModel.buildSaveQuery({ x: 1, y: 3 }),
         CoordinateModel.buildFindOneQuery({ x: 1, y: { $lt: 2 } }),
       ],
-      this.complexCallback
+      "complexCallback"
     );
     Database.executeQuery(query);
   }

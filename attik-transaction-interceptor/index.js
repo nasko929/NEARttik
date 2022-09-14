@@ -31,7 +31,7 @@ let logs_to_send = {}
 const myKeyStore = new keyStores.InMemoryKeyStore();
 const PRIVATE_KEY = "SECRET";
 const keyPair = KeyPair.fromString(PRIVATE_KEY);
-await myKeyStore.setKey("testnet", "naskodobrev.testnet", keyPair);
+await myKeyStore.setKey("testnet", "dakov.testnet", keyPair);
 
 const config = {
     keyStore: myKeyStore,
@@ -41,7 +41,7 @@ const config = {
 
 const nearConnection = await connect(config);
 
-const account = await nearConnection.account("naskodobrev.testnet");
+const account = await nearConnection.account("dakov.testnet");
 
 const checkContract = () =>  {
 
@@ -111,7 +111,7 @@ const sendLogs = (contractId) => {
                 axios.post("http://localhost:8000/", newLogs)
                     .then((response) => {
                         response.data.forEach((queryResponse) => {
-                            if ('callback' in queryResponse) {
+                            if ('callback' in queryResponse && queryResponse['callback']) {
                                 console.log("OK: " + JSON.stringify(queryResponse.data) + " " + queryResponse.callback)
                                 account.functionCall({
                                     contractId: contractId,
