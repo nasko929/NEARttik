@@ -1,0 +1,25 @@
+{
+  "name": "logattik",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "near-api-js": "^1.0.0",
+    "near-cli": "^3.4.2",
+    "node-cron": "^3.0.2",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.16"
+  }
+}
